@@ -7,7 +7,6 @@ import json
 spark.conf.set("fs.azure.account.key.csb6.blob.core.windows.net",blobkey)
 dbutils.fs.mkdirs("/FileStore/Processing/")
 dbutils.fs.cp("wasbs://csb@csb6.blob.core.windows.net/raw_files/result.json","/FileStore/Processing/")
-#dbutils.fs.ls("/FileStore/Processing/")
 with open("/dbfs/FileStore/Processing/result.json") as f:
     sample=json.load( f)
 
@@ -51,7 +50,3 @@ raw_data.write\
    .options(**cfg)\
    .mode("APPEND")\
    .save()
-
-# COMMAND ----------
-
-
